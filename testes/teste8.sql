@@ -7,4 +7,12 @@ update gafanhotos set cursoPreferido = '6' where id = '1';
 
 # Juntando as duas tabelas usando join
 select gafanhotos.nome as aluno, cursos.nome as curso_preferido, cursos.ano as ano_curso
-from gafanhotos join cursos on cursos.idcurso = gafanhotos.cursopreferido; 
+from gafanhotos join cursos on cursos.idcurso = gafanhotos.cursopreferido;
+
+# Juntando as duas tabelas usando left outer join, dando preferência para a tabela gafanhotos
+select aluno.nome, curso_preferido.nome, curso_preferido.ano
+from gafanhotos as aluno left outer join cursos as curso_preferido on curso_preferido.idcurso = aluno.cursopreferido;
+
+# Juntando as duas tabelas usando right outer join, dando preferência para a tabela cursos
+select aluno.nome, curso_preferido.nome, curso_preferido.ano
+from gafanhotos as aluno right outer join cursos as curso_preferido on curso_preferido.idcurso = aluno.cursopreferido; 
